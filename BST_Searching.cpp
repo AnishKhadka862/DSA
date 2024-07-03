@@ -109,13 +109,14 @@ class BST{
     }
     
     //Searching in BST
-    void Search(int key){
+    TreeNode* Search(int key){
         TreeNode *temp = root;
         bool found = false;
         while ( temp!= NULL){
             if (key == temp->value){
                 cout << "value found in the BST!!!" << endl;
                 found = true;
+                
                 //update or delete method can be implemented here
                 break;
             }
@@ -128,7 +129,9 @@ class BST{
         }
         if (!found){
             cout << "value not found !!!" << endl;
+            return NULL;
         }
+        return temp;
     }
 };
 
@@ -174,7 +177,7 @@ int main()
     // cout << endl;
     cout << "enter a value to search in the BST: " << endl;
     cin >> searchVal;
-    bst.Search(searchVal);
+    cout << bst.Search(searchVal)->value;
     
     return 0;
 }
